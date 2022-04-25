@@ -1,0 +1,60 @@
+class HDBlackhawkBoltRegular : HDBlackhawkBolt
+{
+	Default
+	{
+		Tag "Regular bolt";
+		Inventory.PickupMessage "Picked up a regular bolt.";
+		Inventory.Icon "BHBLA0";
+		HDPickup.Bulk 2.0;
+		HDPickup.RefId "bbr";
+	}
+
+	States
+	{
+		Spawn:
+			BHBL A 0;
+			Goto Super::Spawn;
+	}
+}
+
+class HDBlackhawkProjectileRegular : HDBlackhawkProjectile
+{
+	override void OnBoltHit(Line hitLine, Actor hitActor)
+	{
+		A_SprayDecal("BoltScorchRegular", 16);
+
+		if (hitLine)
+		{
+			Actor.Spawn("BulletPuffSmall", pos);
+		}
+		
+		if (!hitActor)
+		{
+			return;
+		}
+
+		// [Ace] Don't pierce ceramic armor. Not always at least.
+		let arm = HDArmourWorn(hitActor.FindInventory('HDArmourWorn'));
+		if (!arm || !arm.Mega || arm.Mega && random(0, HDCONST_BATTLEARMOUR) <= arm.Durability << 1)
+		{
+			int dmg = random(50, 100);
+			double ang = AbsAngle(angle, AngleTo(hitActor));
+			if (ang < 20)
+			{
+				dmg += random(100, 300);
+			}
+			else if (ang < 40)
+			{
+				dmg += random(50, 200);
+			}
+			hitActor.DamageMobj(self, target, dmg, 'Piercing');
+		}
+	}
+
+	Default
+	{
+		Mass 40;
+		Speed HDCONST_MPSTODUPT * 180;
+		+AMBUSH
+	}
+}
