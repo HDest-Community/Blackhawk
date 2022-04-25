@@ -521,7 +521,7 @@ class HDBlackhawkBolt : HDAmmo abstract
 	// [Ace] Regular, Incendiary, Electric, Nuclear.
 	// Some of these are duplicated on the actual classes because indexing can't be resolved at compile time.
 	static const double Bulks[] = { 2.0, 5.0, 3.5, 12.0 };
-	static const int BundleAmounts[] = { 24, 6, 6, 2 };
+	static const int BundleAmounts[] = { 24, 3, 6, 1 };
 	static const string Tags[] = { "Regular", "Incendiary", "Electric", "Nuclear" };
 	static const int HudColors[] = { 0xFFBBBBBB, 0xFFFF9900, 0xFF0088FF, 0xFF22FF00 };
 
@@ -557,7 +557,9 @@ class HDBlackhawkBoltBundle : HDUPK
 		int type = AceCore.GetWeightedResult(weights);
 
 		PickupType = "HDBlackhawkBolt"..HDBlackhawkBolt.Tags[type];
-		PickupMessage = String.Format("Picked up pack of %i %s bolts.", HDBlackhawkBolt.BundleAmounts[type], HDBlackhawkBolt.Tags[type]);
+
+		int amt = HDBlackhawkBolt.BundleAmounts[type];
+		PickupMessage = String.Format("Picked up pack containing %i %s bolt%s.", amt, HDBlackhawkBolt.Tags[type], amt > 1 ? "s" : "");
 		Amount = MaxUnitAmount = HDBlackhawkBolt.BundleAmounts[type];
 		frame = type;
 		Super.BeginPlay();
