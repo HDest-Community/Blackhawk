@@ -26,11 +26,11 @@ class HDBlackhawkProjectileNuclear : HDBlackhawkProjectile
 
 		// [Ace] Anything inside this radius is instantly turned into dust.
 		int coreDist = int(HDCONST_ONEMETRE * 10 * scale);
-		A_Explode(int(6000 * scale), coreDist, XF_HURTSOURCE, true, coreDist, 0, 0, null, 'Thermal');
+		A_Explode(int(30000 * scale), coreDist, XF_HURTSOURCE, true, coreDist, 0, 0, null, 'Thermal');
 
 		// [Ace] Middle blast. Relatively powerful.
 		int blastDist = int(HDCONST_ONEMETRE * 25 * scale);
-		A_Explode(int(2000 * scale), blastDist, XF_HURTSOURCE, true, 0, 0, 0, null, 'Thermal');
+		A_Explode(int(3000 * scale), blastDist, XF_HURTSOURCE, true, 0, 0, 0, null, 'Thermal');
 
 		// [Ace] Falloff. Low damage but high distance.
 		int falloffDist = int(HDCONST_ONEMETRE * 50 * scale);
