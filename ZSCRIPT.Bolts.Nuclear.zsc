@@ -130,14 +130,14 @@ class HDBlackhawkNukeSmokeSpear : Actor
 {
 	override void BeginPlay()
 	{
-		ReactionTime = int(ReactionTime * frandom(0.20, 1.0));
+		ReactionTime = int(ReactionTime * frandom(0.5, 1.0));
 		Super.BeginPlay();
 	}
 
 	Default
 	{
 		+NOINTERACTION
-		Gravity 0.1;
+		Gravity 0.05;
 		ReactionTime 70;
 	}
 
