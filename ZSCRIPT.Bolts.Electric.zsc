@@ -82,5 +82,6 @@ class HDBlackhawkProjectileElectric : HDBlackhawkProjectile
 	{
 		Mass 60;
 		Speed HDCONST_MPSTODUPT * 150;
+		Obituary "%k helped %o make a shocking discovery - electricity can kill.";
 	}
 }

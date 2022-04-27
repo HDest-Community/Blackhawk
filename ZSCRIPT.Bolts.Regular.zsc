@@ -55,6 +55,7 @@ class HDBlackhawkProjectileRegular : HDBlackhawkProjectile
 	{
 		Mass 40;
 		Speed HDCONST_MPSTODUPT * 180;
+		Obituary "%o was assassinated by %k's bolt.";
 		+AMBUSH
 	}
 }
