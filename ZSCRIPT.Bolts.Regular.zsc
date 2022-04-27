@@ -41,11 +41,11 @@ class HDBlackhawkProjectileRegular : HDBlackhawkProjectile
 			double ang = AbsAngle(angle, AngleTo(hitActor));
 			if (ang < 20)
 			{
-				dmg += random(100, 300);
+				dmg += random(60, 120);
 			}
 			else if (ang < 40)
 			{
-				dmg += random(50, 200);
+				dmg += random(30, 60);
 			}
 			hitActor.DamageMobj(self, target, dmg, 'Piercing');
 		}
