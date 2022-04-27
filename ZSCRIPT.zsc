@@ -224,6 +224,7 @@ class HDBlackhawk : HDWeapon
 			}
 			WeaponStatus[BHProp_Flags] &= ~BHF_StringPulled;
 
+			// [Ace] I guess I could String.Split for this, but it's whatever.
 			string boltInput = input.Mid(boltKeyIndex + 6, BHProp_MagazineLast);
 			bool exit = false;
 			for (int i = 0; i < BHProp_MagazineLast && i < boltInput.Length() && !exit; ++i)
@@ -302,6 +303,11 @@ class HDBlackhawk : HDWeapon
 			}
 			sb.Fill(HDBlackhawkBolt.HudColors[WeaponStatus[i]], -15, -5 - yShift, -15, 1, sb.DI_SCREEN_CENTER_BOTTOM | sb.DI_ITEM_RIGHT_BOTTOM);
 			yShift += 2;
+		}
+
+		if (WeaponStatus[BHProp_Flags] & BHF_StringPulled)
+		{
+			sb.DrawRect(-37, -4, 5, -3);
 		}
 	}
 
