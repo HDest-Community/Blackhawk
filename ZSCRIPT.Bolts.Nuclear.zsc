@@ -122,6 +122,7 @@ class HDBlackhawkProjectileNuclear : HDBlackhawkProjectile
 	{
 		Mass 150;
 		Speed HDCONST_MPSTODUPT * 100;
+		+NODAMAGETHRUST
 	}
 }
 
