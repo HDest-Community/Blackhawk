@@ -213,7 +213,32 @@ class HDBlackhawk : HDWeapon
 		{
 			WeaponStatus[BHProp_Flags] |= BHF_SemiAuto;
 		}
-		InitializeWepStats(false);
+
+		int boltKeyIndex = input.IndexOf("bolts:");
+		if (boltKeyIndex > -1)
+		{
+			// [Ace] Empty the crossbow first because we're overriding it.
+			for (int i = BHProp_MagazineFirst; i <= BHProp_MagazineLast; ++i)
+			{
+				WeaponStatus[i] = -1;
+			}
+			WeaponStatus[BHProp_Flags] &= ~BHF_StringPulled;
+
+			string boltInput = input.Mid(boltKeyIndex + 6, BHProp_MagazineLast);
+			bool exit = false;
+			for (int i = 0; i < BHProp_MagazineLast && i < boltInput.Length() && !exit; ++i)
+			{
+				Name code = boltInput.Mid(i, 1);
+				switch (code)
+				{
+					case 'r': WeaponStatus[BHProp_MagazineFirst + i] = 0; break;
+					case 'i': WeaponStatus[BHProp_MagazineFirst + i] = 1; break;
+					case 'e': WeaponStatus[BHProp_MagazineFirst + i] = 2; break;
+					case 'n': WeaponStatus[BHProp_MagazineFirst + i] = 3; break;
+					default: exit = true; break;
+				}
+			}
+		}
 	}
 	override void DropOneAmmo(int amt)
 	{
