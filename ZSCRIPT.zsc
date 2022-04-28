@@ -320,6 +320,7 @@ class HDBlackhawk : HDWeapon
 	Default
 	{
 		-HDWEAPON.FITSINBACKPACK
+		+WEAPON.NOAUTOFIRE
 		Weapon.SelectionOrder 300;
 		Weapon.SlotNumber 6;
 		Weapon.SlotPriority 0.5;
@@ -345,7 +346,7 @@ class HDBlackhawk : HDWeapon
 
 				invoker.bWIMPY_WEAPON = false;
 
-				int wrflags = stringPulled || invoker.WeaponStatus[BHProp_MagazineFirst] == -1 ? WRF_NOSECONDARY : 0;
+				int wrflags = stringPulled || invoker.WeaponStatus[BHProp_MagazineFirst] == -1 ? WRF_NOSECONDARY : WRF_NOPRIMARY;
 				A_WeaponReady(WRF_ALLOWUSER3 | WRF_ALLOWRELOAD | wrflags);
 			}
 			Goto ReadyEnd;
@@ -386,7 +387,7 @@ class HDBlackhawk : HDWeapon
 					SetWeaponState('AutoPull');
 				}
 			}
-			Goto Nope;
+			Goto Ready;
 		AutoPull:
 			BHKG A 2;
 			BHKG A 2 A_StartSound("Blackhawk/StringPull", 6);
