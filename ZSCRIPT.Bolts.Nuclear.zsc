@@ -24,6 +24,8 @@ class HDBlackhawkProjectileNuclear : HDBlackhawkProjectile
 	{
 		double scale = 0.5;
 
+		A_HDBlast(pushradius: HDCONST_ONEMETRE * 60 * scale, pushamount: 30000 * scale, fullpushradius: HDCONST_ONEMETRE * 20 * scale);
+
 		// [Ace] Anything inside this radius is instantly turned into dust.
 		int coreDist = int(HDCONST_ONEMETRE * 10 * scale);
 		A_Explode(int(30000 * scale), coreDist, XF_HURTSOURCE, true, coreDist, 0, 0, null, 'Thermal');
