@@ -149,7 +149,7 @@ class HDBlackhawk : HDWeapon
 		invoker.WeaponStatus[BHProp_MagazineFirst] = -1;
 		if (toInventory)
 		{
-			if (invoker.owner.CountInv(invoker.BoltClasses[removedType]) < GetDefaultByType(invoker.BoltClasses[removedType]).MaxAmount)
+			if (!invoker.owner.A_JumpIfInventory(invoker.BoltClasses[removedType], 0, "Null"))
 			{
 				invoker.owner.A_GiveInventory(invoker.BoltClasses[removedType], 1);
 			}
