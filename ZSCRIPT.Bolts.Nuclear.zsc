@@ -4,7 +4,7 @@ class HDBlackhawkBoltNuclear : HDBlackhawkBolt
 	{
 		Tag "Nuclear bolt";
 		Inventory.PickupMessage "Picked up a nuclear bolt.";
-		Inventory.Icon "BHBLD0";
+		Inventory.Icon "BHBID0";
 		HDPickup.Bulk 12.0;
 		HDPickup.RefId "bbn";
 		+HDPICKUP.NORANDOMBACKPACKSPAWN
@@ -126,6 +126,13 @@ class HDBlackhawkProjectileNuclear : HDBlackhawkProjectile
 		Speed HDCONST_MPSTODUPT * 100;
 		Obituary "%k split the atom too close in the vicinity of %o.";
 		+NODAMAGETHRUST
+	}
+
+	States
+	{
+		Spawn:
+			BHBP D 0;
+			Goto Super::Spawn;
 	}
 }
 

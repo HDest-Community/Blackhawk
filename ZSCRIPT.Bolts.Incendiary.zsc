@@ -4,7 +4,7 @@ class HDBlackhawkBoltIncendiary : HDBlackhawkBolt
 	{
 		Tag "Incendiary bolt";
 		Inventory.PickupMessage "Picked up an incendiary bolt.";
-		Inventory.Icon "BHBLB0";
+		Inventory.Icon "BHBIB0";
 		HDPickup.Bulk 5.0;
 		HDPickup.RefId "bbi";
 	}
@@ -69,5 +69,12 @@ class HDBlackhawkProjectileIncendiary : HDBlackhawkProjectile
 		Mass 100;
 		Speed HDCONST_MPSTODUPT * 150;
 		Obituary "%o felt a little cold so %k warmed %h up.";
+	}
+
+	States
+	{
+		Spawn:
+			BHBP B 0;
+			Goto Super::Spawn;
 	}
 }

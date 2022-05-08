@@ -4,7 +4,7 @@ class HDBlackhawkBoltElectric : HDBlackhawkBolt
 	{
 		Tag "Electric bolt";
 		Inventory.PickupMessage "Picked up an electric bolt.";
-		Inventory.Icon "BHBLC0";
+		Inventory.Icon "BHBIC0";
 		HDPickup.Bulk 3.5;
 		HDPickup.RefId "bbe";
 	}
@@ -83,5 +83,12 @@ class HDBlackhawkProjectileElectric : HDBlackhawkProjectile
 		Mass 60;
 		Speed HDCONST_MPSTODUPT * 150;
 		Obituary "%k helped %o make a shocking discovery - electricity can kill.";
+	}
+
+	States
+	{
+		Spawn:
+			BHBP C 0;
+			Goto Super::Spawn;
 	}
 }
