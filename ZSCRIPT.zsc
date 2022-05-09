@@ -269,7 +269,7 @@ class HDBlackhawk : HDWeapon
 	override string PickupMessage()
 	{
 		string autoStr = WeaponStatus[BHProp_Flags] & BHF_SemiAuto ? "semi-auto " : "";
-		return String.Format("You got the %s'Blackhawk' crossbow.", autoStr);
+		return String.Format("You got the %s'Blackhawk' high-tech crossbow.", autoStr);
 	}
 
 	override void DrawHUDStuff(HDStatusBar sb, HDWeapon hdw, HDPlayerPawn hpl)
