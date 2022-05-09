@@ -282,15 +282,15 @@ class HDBlackhawk : HDWeapon
 				double drawAlpha = bolt ? 1.0 : 0.5;
 
 				int frameLetter = 65 + i;
-				sb.DrawImage(String.Format("BHBL%c0", frameLetter), (-50, -8 - 10 * i), sb.DI_SCREEN_CENTER_BOTTOM | sb.DI_ITEM_CENTER, scale: (0.75, 0.75));
+				sb.DrawImage(String.Format("BHBL%c0", frameLetter), (-37, -8 - 10 * i), sb.DI_SCREEN_CENTER_BOTTOM | sb.DI_ITEM_VCENTER | sb.DI_ITEM_RIGHT, scale: (0.8, 0.8));
 				int amt = bolt ? bolt.Amount : 0;
 
 				if (i == WeaponStatus[BHProp_NextBoltIndex])
 				{
-					sb.DrawImage(String.Format("BHHH%c0", frameLetter), (-50, -8 - 10 * i), sb.DI_SCREEN_CENTER_BOTTOM | sb.DI_ITEM_CENTER, scale: (0.75, 0.75));
+					sb.DrawImage(String.Format("BHHH%c0", frameLetter), (-36, -8 - 10 * i), sb.DI_SCREEN_CENTER_BOTTOM | sb.DI_ITEM_VCENTER | sb.DI_ITEM_RIGHT, scale: (0.8, 0.8));
 				}
 
-				sb.DrawNum(amt, -34, -8 - 10 * i, sb.DI_SCREEN_CENTER_BOTTOM);
+				sb.DrawNum(amt, -35, -8 - 10 * i, sb.DI_SCREEN_CENTER_BOTTOM);
 			}
 		}
 

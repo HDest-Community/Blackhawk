@@ -69,6 +69,7 @@ class HDBlackhawkProjectileIncendiary : HDBlackhawkProjectile
 		Mass 100;
 		Speed HDCONST_MPSTODUPT * 150;
 		Obituary "%o felt a little cold so %k warmed %h up.";
+		+BRIGHT
 	}
 
 	States

@@ -126,6 +126,7 @@ class HDBlackhawkProjectileNuclear : HDBlackhawkProjectile
 		Speed HDCONST_MPSTODUPT * 100;
 		Obituary "%k split the atom too close in the vicinity of %o.";
 		+NODAMAGETHRUST
+		+BRIGHT
 	}
 
 	States
