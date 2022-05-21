@@ -602,10 +602,15 @@ class HDBlackhawkBoltBundle : HDUPK
 		PickupType = "HDBlackhawkBolt"..HDBlackhawkBolt.Tags[type];
 
 		int amt = HDBlackhawkBolt.BundleAmounts[type];
-		PickupMessage = String.Format("Picked up pack containing %i %s bolt%s.", amt, HDBlackhawkBolt.Tags[type], amt > 1 ? "s" : "");
 		Amount = MaxUnitAmount = HDBlackhawkBolt.BundleAmounts[type];
 		frame = type;
 		Super.BeginPlay();
+	}
+
+	override void Tick()
+	{
+		PickupMessage = String.Format("Picked up pack containing %i %s bolt%s.", amt, HDBlackhawkBolt.Tags[type], amt > 1 ? "s" : "");
+		Super.Tick();
 	}
 
 	Default
