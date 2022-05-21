@@ -597,21 +597,22 @@ class HDBlackhawkBoltBundle : HDUPK
 		weights.Push(5);
 		weights.Push(1);
 
-		int type = AceCore.GetWeightedResult(weights);
+		ChosenType = AceCore.GetWeightedResult(weights);
 
-		PickupType = "HDBlackhawkBolt"..HDBlackhawkBolt.Tags[type];
+		PickupType = "HDBlackhawkBolt"..HDBlackhawkBolt.Tags[ChosenType];
 
-		int amt = HDBlackhawkBolt.BundleAmounts[type];
-		Amount = MaxUnitAmount = HDBlackhawkBolt.BundleAmounts[type];
-		frame = type;
+		Amount = MaxUnitAmount = HDBlackhawkBolt.BundleAmounts[ChosenType];
+		frame = ChosenType;
 		Super.BeginPlay();
 	}
 
 	override void Tick()
 	{
-		PickupMessage = String.Format("Picked up pack containing %i %s bolt%s.", amt, HDBlackhawkBolt.Tags[type], amt > 1 ? "s" : "");
+		PickupMessage = String.Format("Picked up pack containing %i %s bolt%s.", Amount, HDBlackhawkBolt.Tags[ChosenType], Amount > 1 ? "s" : "");
 		Super.Tick();
 	}
+
+	int ChosenType;
 
 	Default
 	{
