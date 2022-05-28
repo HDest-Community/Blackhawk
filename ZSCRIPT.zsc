@@ -126,22 +126,17 @@ class HDBlackhawk : HDWeapon
 			return false;
 		}
 
-		for (int i = BHProp_MagazineFirst; i <= BHProp_MagazineLast; ++i)
+		for (int i = BHProp_MagazineLast; i >= BHProp_MagazineFirst; --i)
 		{
-			if (invoker.WeaponStatus[i] == -1)
-			{
-				invoker.WeaponStatus[i] = type;
-				invoker.owner.A_TakeInventory(boltRef.GetClass(), 1);
-				return true;
-			}
+			invoker.WeaponStatus[i] = invoker.WeaponStatus[i - 1];
 		}
-		return false;
+
+		invoker.owner.A_TakeInventory(boltRef.GetClass(), 1);
+		invoker.WeaponStatus[BHProp_MagazineFirst] = type;
+		return true;
 	}
 
-	// [Ace] The bolts are fired in the order in which they were loaded. That is, loading 5 regular bolts and then 5 electric ones will fire the regular ones first.
-	// How does it work? Fucked if I know. The Striker 12's mechanism is technically what I tried modelling it on, but it's all done automatically, plus it's still a mag and not a revolver cylinder.
-	// Meaning you can't have bolt, bolt, no bolt, bolt, no bolt, and so on.
-	// It just works, don't worry about it.
+	// [Ace] Bolts are fired in first-in-last-out order.
 	private action int A_RemoveBolt(bool toInventory)
 	{
 		// [Ace] This should never return -1 because A_RemoveBolt should never be called on an empty magazine. It will result in an array index out of bounds exception.
