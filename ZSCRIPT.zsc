@@ -254,11 +254,11 @@ class HDBlackhawk : HDWeapon
 	override string GetHelpText()
 	{
 		return WEPHELP_FIRE.."  Shoot\n"
-		..WEPHELP_ALTFIRE.." (hold)  Pull string\n"
+		..WEPHELP_ALTFIRE.."  Pull string\n"
 		..WEPHELP_RELOAD.." (hold)  Reload mode\n"
-		..WEPHELP_ALTRELOAD.."  Insert bolt\n"
-		..WEPHELP_UNLOAD.."  Remove bolt\n"
-		..WEPHELP_FIRE.."/"..WEPHELP_ALTFIRE.."  Cycle next bolt type";
+		.."  + "..WEPHELP_ALTRELOAD.."  Insert bolt\n"
+		.."  + "..WEPHELP_UNLOAD.."  Remove bolt\n"
+		.."  + "..WEPHELP_FIRE.."/"..WEPHELP_ALTFIRE.."  Cycle next bolt type";
 	}
 
 	override string PickupMessage()
