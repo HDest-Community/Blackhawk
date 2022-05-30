@@ -42,8 +42,9 @@ class HDBlackhawkProjectileElectric : HDBlackhawkProjectile
 		DistantNoise.Make(self, "world/tbfar2", 2.0);
 		DistantQuaker.Quake(self, 3, 35, 768);
 
+		int zapsLeft = 8;
 		BlockThingsIterator it = BlockThingsIterator.Create(self, EffectRange);
-		while (it.Next())
+		while (it.Next() && zapsLeft > 0)
 		{
 			double distFac = it.thing.Distance3D(self) / EffectRange;
 			if (distFac > 1.0 || !it.thing.bISMONSTER && !it.thing.player)
@@ -56,6 +57,7 @@ class HDBlackhawkProjectileElectric : HDBlackhawkProjectile
 				HDActor.ZapArc(self, it.thing, dev: 0.6);
 			}
 
+			zapsLeft--;
 			it.thing.DamageMobj(self, target, random(1, int(32 + 256 * (1.0 - distFac))), 'Electrical');
 			if (!it.thing) // [Ace] In case it gets destroyed by the DamageMobj call.
 			{
