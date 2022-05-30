@@ -65,6 +65,7 @@ class HDBlackhawkProjectileRegular : HDBlackhawkProjectile
 		Speed HDCONST_MPSTODUPT * 180;
 		Obituary "%o was assassinated by %k's bolt.";
 		+AMBUSH
+		+NOEXTREMEDEATH
 	}
 
 	States

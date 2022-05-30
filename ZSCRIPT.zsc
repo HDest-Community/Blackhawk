@@ -536,7 +536,6 @@ class HDBlackhawkProjectile : SlowProjectile abstract
 
 	Default
 	{
-		+NOEXTREMEDEATH
 		Scale 0.3;
 	}
 
