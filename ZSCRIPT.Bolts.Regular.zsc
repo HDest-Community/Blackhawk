@@ -7,6 +7,7 @@ class HDBlackhawkBoltRegular : HDBlackhawkBolt
 		Inventory.Icon "BHBIA0";
 		HDPickup.Bulk 2.0;
 		HDPickup.RefId "bbr";
+		+HDPICKUP.MULTIPICKUP
 	}
 
 	States
