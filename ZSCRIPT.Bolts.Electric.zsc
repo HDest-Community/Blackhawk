@@ -66,9 +66,9 @@ class HDBlackhawkProjectileElectric : HDBlackhawkProjectile
 
 			for (Inventory next = it.thing.Inv; next != null; next = next.Inv)
 			{
-				if (next.GetClassName() == 'HDPersonalShield' && next.Amount > 0)
+				if (next.GetClassName() == 'HDPersonalShieldGenerator')
 				{
-					AceCoreHandler.CreateRequest('OverloadPsg', self, next);
+					AceCoreHandler.CreateRequest('InflictEmpDamage', self, next, "500");
 				}
 				else if (next is 'HDMagicShield')
 				{
