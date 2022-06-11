@@ -396,7 +396,7 @@ class HDBlackhawk : HDWeapon
 			Goto Ready;
 		AutoPull:
 			BHKG A 2;
-			BHKG B 2 A_StartSound("Blackhawk/StringPull", 6);
+			BHKG B 3 A_StartSound("Blackhawk/StringPull", 6);
 			BHKG C 2 { invoker.WeaponStatus[BHProp_Flags] |= BHF_StringPulled; }
 			Goto Ready;
 		AltFire:
