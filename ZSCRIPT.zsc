@@ -566,6 +566,7 @@ class HDBlackhawkBolt : HDAmmo abstract
 
 	Default
 	{
+		+HDPICKUP.MULTIPICKUP
 		+HDPICKUP.FITSINBACKPACK
 		+FORCEXYBILLBOARD 
 		+CANNOTPUSH
