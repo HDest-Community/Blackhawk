@@ -380,7 +380,7 @@ class HDBlackhawk : HDWeapon
 				{
 					return;
 				}
-				Actor bolt = Spawn(boltcls, (pos.xy, pos.z + HDWeapon.GetShootOffset(self, invoker.barrellength, invoker.barrellength - HDCONST_SHOULDERTORADIUS)));
+				Actor bolt = Spawn(boltcls, pos + GunPos());
 				bolt.angle = angle;
 				bolt.pitch = pitch;
 				bolt.target = self;
